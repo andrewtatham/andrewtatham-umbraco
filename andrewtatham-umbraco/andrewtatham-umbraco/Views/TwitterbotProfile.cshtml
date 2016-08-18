@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TwitterbotProfile>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+}
+<div role="content">
+  <section class="light blogarchive equalizer">
+    <div class="container">
+      <div class="row">
+
+
+        <h2>@CurrentPage.DisplayName</h2>
+        <h2>@CurrentPage.ScreenName</h2>
+        <img src="@Umbraco.Media(CurrentPage.ProfileImage).Url?height=512&width=512" />
+        <p>@CurrentPage.Description</p>
+        <a href="@CurrentPage.TwitterUrl">Twitter</a>
+      </div>
+    </div>
+  </section>
+</div>

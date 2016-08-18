@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Articles>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "MasterAlt.cshtml";
+}
+<div role="content">
+  <section class="light blogarchive equalizer">
+    <div class="container">
+      <div class="row">
+        @foreach (var article in CurrentPage.Children)
+        {
+            <div class="col-sm-6">
+              <div class="content equal">
+                <a href="@article.Url">
+                  <div class="date">@article.CreateDate.ToLongDateString()</div>
+                  <h2>@article.ArticleTitle</h2>
+                  <p>@Umbraco.Truncate(article.ArticleBody, 240, true)</p>
+                </a>
+              </div>
+            </div>}
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TwitterbotRepository>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "MasterAlt.cshtml";
+}
+<div role="content">
+  <section class="light blogarchive equalizer">
+    <div class="container">
+      <div class="row">
+        <p>@CurrentPage.Introduction</p>
+      </div>
+      <div class="row">
+        @foreach (var twitterBotProfile in CurrentPage.Children)
+        {
+            <div class="col-sm-6">
+              <div class="content equal">
+                <a href="@twitterBotProfile.Url">
+                  
+                  <h2>@twitterBotProfile.DisplayName</h2>
+                  <h2>@twitterBotProfile.ScreenName</h2>
+                  <img src="@Umbraco.Media(twitterBotProfile.ProfileImage).Url?height=64&width=64&bgcolor=000" />
+                  <p>@Umbraco.Truncate(twitterBotProfile.Description, 240, true)</p>
+                </a>
+              </div>
+            </div>}
+      </div>
+    </div>
+  </section>
+</div>
